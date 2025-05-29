@@ -6,7 +6,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    axios.get("http://localhost:5001/api/auth/status", {
+    axios.get(`${process.env.REACT_APP_API_URL}/api/auth/status`, {
       headers: { Authorization: `Bearer ${token}` }
     })
     .then(res => setStatus(res.data.status))
